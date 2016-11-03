@@ -1,1 +1,2 @@
 # SemEnv
+My bash setup
