@@ -1,1 +1,1 @@
-/sbin/ifconfig  > /Users/neils/Google\ Drive/ifconfig.txt 2>&1
+/sbin/ifconfig  > ~/GD/ifconfig.txt 2>&1
