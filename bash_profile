@@ -89,7 +89,15 @@ t(){
 }
 
 alias oldmvn="/usr/local/opt/maven@3.0/bin/mvn"
-
+fsmvn(){
+	(export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home/;mvn $@)
+}
+j8mvn(){
+	(export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home/;mvn $@)
+}
+sigmamvn(){
+	(export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home/;mvn $@)
+}
 export JAVA_HOME='/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/'
 
 export RIBO_DATA=~/git/brill/ribo_data
@@ -115,23 +123,42 @@ alias backred="echo -e '\033]Ph990000\033\\'"
 alias backamber="echo -e '\033]Ph997700\033\\'"
 
 #Boraqe
-alias sshborage="backamber && t SPE && ssh -t cstspeweb01a.test.semantico.net 'cd /opt/semantico/slot/op-admin/1/data/import/articles/ && exec $SHELL -l' ; backblack" 
+alias sshborage="backamber && t SPE && ssh -t ispfs01c.semantico.net 'exec $SHELL -l' ; backblack" 
 
-#BRILL SOMETHING?
-alias sshbrillprodadmin="backred && t RIBO && ssh cspbrillweb03xc.semantico.net ; backblack" 
+#Ribo Test
 alias sshribotestadmin="backamber && t RIBO && ssh -t cstbrillweb01e.test.semantico.net 'cd /opt/semantico/slot/ribo-admin/1/data/import/source_files/ && exec $SHELL -l' ; backblack" 
+
+#Linking Hub
+alias sshlinkinghub="backred && t RIBO && ssh -t cspbrillweb03yb.int.dyn.semcs.net 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack" 
+alias sshlinkinghubsolrtnl1="figlet tunnel 34100 to Linking Hub prod solr;ssh  cspbrillweb03yb.int.dyn.semcs.net -L 34100:127.0.0.1:34100 cat"
+
+#Ribo Prod
+alias sshriboprodfe1="backred && t RIBO && ssh -t cspbrillribo03x1.semantico.net 'cd /opt/semantico/slot/ribo-frontend/1/sitecode/ && exec $SHELL -l' ; backblack" 
+alias sshriboprodfe2="backred && t RIBO && ssh -t cspbrillribo03y1.semantico.net 'cd /opt/semantico/slot/ribo-frontend/1/sitecode/ && exec $SHELL -l' ; backblack" 
+alias sshriboprodsolrtnl1="figlet tunnel 29100 to ribo prod solr;ssh  neilsadm@cspbrillribo03x1.semantico.net -L 29100:127.0.0.1:20100 cat"
+alias sshriboprodsolrtnl2="figlet tunnel 29101 to ribo prod solr;ssh  neilsadm@cspbrillribo03x1.semantico.net -L 29101:127.0.0.1:20101 cat"
+alias sshriboprodfragrtnl="figlet tunnel 26100 to ribo prod fragr;ssh  neilsadm@cspbrillribo03x1.semantico.net -L 26100:127.0.0.1:26100 cat"
+
+#Ribo dataQA
+alias sshribodatqafe1="backred && t RIBO && ssh -t cspbrillqaribo03x1.semantico.net 'cd /opt/semantico/slot/ribo-dataqa-frontend/1/sitecode && exec $SHELL -l' ; backblack" 
+alias sshribodataqasolrtnl1="figlet tunnel 29100 to ribo dataqa solr;ssh  neilsadm@cspbrillqaribo03x1.semantico.net -L 29100:127.0.0.1:20100 cat"
+alias sshribodataqasolrtnl2="figlet tunnel 29101 to ribo dataqa solr;ssh  neilsadm@cspbrillqaribo03x1.semantico.net -L 29101:127.0.0.1:20101 cat"
 
 #PSO/BRC Test
 alias sshpsotestadmin="backamber && t RIBO && ssh -t cstbrillweb01g.test.semantico.net 'cd /opt/semantico/slot/brc-admin/1/data/import/ && exec $SHELL -l' ; backblack" 
 alias sshpsotestfe="backamber && t RIBO && ssh -t cstbrillweb01g.test.semantico.net 'cd /opt/semantico/slot/brc-admin/1/data/import/ && exec $SHELL -l' ; backblack" 
 
 #PSO/BRC DataQA
-alias sshpsodataqaadmin="backred && t PSO  && ssh -t cspbrillweb03xa.semantico.net 'cd /opt/semantico/slot/brc-dataqa-admin/1/ && exec $SHELL -l'; backblack"
-alias sshpsoprodadmin="backred && t PSO  && ssh -t fr-brill-pso-admin-prod-01.highwire.org 'cd /opt/semantico/slot/brc-admin/1/ && exec $SHELL -l'; backblack"
+alias sshpsodataqaadmin="backred && t PSO  && ssh -t cspbrillqapso03x1.semantico.net 'cd /opt/semantico/slot/brc-dataqa-admin/1/sitecode && exec $SHELL -l'; backblack"
+alias sshpsodataqafe="backred && t PSO  && ssh -t cspbrillqapso03x1.semantico.net 'cd /opt/semantico/slot/brc-dataqa-frontend/1/sitecode && exec $SHELL -l'; backblack"
+alias sshpsodataqasolrtnl1="figlet tunnel 29103 to pso dataqa solr;ssh  neilsadm@cspbrillqapso03x1.semantico.net -L 29103:127.0.0.1:20103 cat"
+alias sshpsodataqasolrtnl2="figlet tunnel 29104 to pso dataqa solr;ssh  neilsadm@cspbrillqapso03x1.semantico.net -L 29104:127.0.0.1:20104 cat"
+
 
 #PSO/BRC Prod
-alias sshpsoprodfe1="backred && t PSO  && ssh -t fr-brill-pso-web-prod-01 'cd /opt/semantico/slot/brc-frontend/1/sitecode && exec $SHELL -l'; backblack"
-alias sshpsoprodfe2="backred && t PSO  && ssh -t fr-brill-pso-web-prod-02 'cd /opt/semantico/slot/brc-frontend/1/sitecode && exec $SHELL -l'; backblack"
+alias sshpsoprodadmin="backred && t PSO  && ssh -t fr-brill-pso-admin-prod-01.highwire.org 'cd /opt/semantico/slot/brc-admin/1/ && exec $SHELL -l'; backblack"
+alias sshpsoprodfe1="backred && t PSO  && ssh -t fr-brill-pso-web-prod-01.highwire.org 'cd /opt/semantico/slot/brc-frontend/1/sitecode && exec $SHELL -l'; backblack"
+alias sshpsoprodfe2="backred && t PSO  && ssh -t fr-brill-pso-web-prod-02.highwire.org 'cd /opt/semantico/slot/brc-frontend/1/sitecode && exec $SHELL -l'; backblack"
 
 
 #SPE TEST
@@ -149,25 +176,38 @@ alias sshspeprodfe1="backred && t SPE && ssh -t fr-spe-op-web-prod-01.highwire.o
 alias sshspeprodfe2="backred && t SPE && ssh -t fr-spe-op-web-prod-02.highwire.org 'cd /opt/semantico/slot/op-frontend/1/sitecode/ && exec $SHELL -l' ; backblack"
 alias sshspeprodsams1="backred && t SPE && ssh -t fr-spe-sams-web-prod-01.highwire.org 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack"
 alias sshspeprodsams2="backred && t SPE && ssh -t fr-spe-sams-web-prod-02.highwire.org 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack"
+alias sshspeprodsolrtnl1="figlet tunnel 29100 to spe prod solr;ssh fr-spe-op-web-prod-01.highwire.org -L 29100:127.0.0.1:20100 cat"
+alias sshspeprodsolrtnl2="figlet tunnel 29101 to spe prod solr;ssh fr-spe-op-web-prod-01.highwire.org -L 29101:127.0.0.1:20101 cat"
+
+#PDF AGG
+alias sshpdfaggprod1="backred && t SPE && ssh -t nstevens@fr-spe-pdfaggregator-prod-01.highwire.org 'cd / && exec $SHELL -l' ; backblack"
+alias sshpdfaggprod2="backred && t SPE && ssh -t nstevens@fr-spe-pdfaggregator-prod-02.highwire.org 'cd / && exec $SHELL -l' ; backblack"
 
 #DRAMA TEST
-alias sshdramatestadmin="backamber && t DRAMA && ssh -t cstbppweb01b.test.semantico.net 'cd /var/www/admin.drama.bpp.test.semantico.net  && exec $SHELL -l' ; backblack" 
+alias sshdramatestboth="backamber && t DRAMA && ssh -t cstbppweb03x1.highwire.org 'cd /opt/semantico/slot  && exec $SHELL -l' ; backblack" 
 
 #DRAMA PROD
 alias sshdramaprodfe1="backred && t DRAMA && ssh -t cspbppweb03xa.semantico.net 'cd /opt/semantico/slot/drama-frontend/1/sitecode && exec $SHELL -l' ; backblack" 
 alias sshdramaprodfe2="backred && t DRAMA && ssh -t cspbppweb03yd.semantico.net 'cd /opt/semantico/slot/drama-frontend/1/sitecode && exec $SHELL -l' ; backblack" 
 
-alias sshdramaprodadmincode="backred && t DRAMA && ssh -t cspbppweb03yb.semantico.net 'cd /opt/semantico/slot/drama-admin/1/sitecode/ && exec $SHELL -l' ; backblack" 
-alias sshdramaprodadmindata="backred && t DRAMA && ssh -t cspbppweb03yb.semantico.net 'cd /var/www/admin.drama.bpp.semcs.net/data/ && exec $SHELL -l' ; backblack" 
+alias sshdramaprodadmincode="backred && t DRAMA && ssh -t cspbppweb03yd.semantico.net 'cd /opt/semantico/slot/drama-admin/1/sitecode/ && exec $SHELL -l' ; backblack" 
+alias sshdramaprodadmindata="backred && t DRAMA && ssh -t cspbppweb03yd.semantico.net 'cd /var/www/admin.drama.bpp.semcs.net/data/ && exec $SHELL -l' ; backblack" 
+
+alias sshdramaprodsams="backred && t SAMS && ssh -t cspbppsams03x1 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack" 
+
+alias sshbbyregtest="backamber && ssh -t nstevens@bk-bpp-sso-dev-01; backblack"
 
 #IOS TEST
 alias sshiostestadmin="backamber && t IOS && ssh -t cstiosadmin01a.test.semantico.net 'cd /opt/semantico/slot/ip-admin/1/data/import && exec $SHELL -l' ; backblack" 
 alias sshiostestfe="backamber && t IOS && ssh -t cstiosweb01b.test.semantico.net 'cd /opt/semantico/slot/ip-frontend/1/sitecode && exec $SHELL -l' ; backblack" 
-alias sshpgiostest="ssh -f neilsadm@cstiosadmin01a.test.semantico.net -L 5433:cstiosadmin01a.test.semantico.net:5432 -N"
+alias sshiostestdb="backamber && t IOS && ssh -t cstiosweb01a.test.semantico.net 'cd /opt/semantico/slot && exec $SHELL -l' ; backblack" 
+alias sshiostestsams="backamber && t IOS && ssh -t cstiossams01a.test.semantico.net 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack" 
 
 #IOS PROD
-alias sshiosprodadmin="backred && t IOS && ssh -t cspiosadmin30xa 'cd /opt/semantico/slot/ip-admin/1/data/import && exec $SHELL -l' ; backblack" 
-alias sshiosprodfe="backred && ssh -t cspiosweb30yb 'cd /opt/semantico/slot/ip-frontend/1/sitecode && exec /bin/bash -l'; backblack"
+alias sshiosprodadmin="backred && t IOS && ssh -t cspiosadmin30xa.semantico.net 'cd /opt/semantico/slot/ip-admin/1/data/import && exec $SHELL -l' ; backblack" 
+alias sshiosprodfe="backred && ssh -t cspiosweb30yb.ext.dyn.semcs.net 'cd /opt/semantico/slot/ip-frontend/1/sitecode && exec /bin/bash -l'; backblack"
+alias sshiosprodsams1="backred && ssh -t cspiossams30xa.semantico.net 'cd /opt/semantico/slot/ && exec /bin/bash -l'; backblack"
+alias sshiosprodsams2="backred && ssh -t cspiossams30yb.semantico.net 'cd /opt/semantico/slot/ && exec /bin/bash -l'; backblack"
 
 #MAT PROPS DEV
 alias sshmatpropsdev="backamber && t MHE && ssh -t devmhpweb01a.dev.semantico.net 'cd /opt/semantico/slot/mp-mpdbe/1/sitecode && exec $SHELL -l' ; backblack" 
@@ -177,12 +217,13 @@ alias sshmatpropsprod1="backred && t IOS && ssh -t cspmhpweb03xa.semantico.net '
 alias sshmatpropsprod2="backred && t IOS && ssh -t cspmhpweb03yb.semantico.net 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack" 
 
 #MHE PROD
-alias sshmheprodfe1="backred && t IOS && ssh -t cspmhpweb03xa.semantico.net 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack" 
-alias sshmheprodfe2="backred && t IOS && ssh -t cspmhpweb03yb.semantico.net 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack" 
-
+alias sshmheprodfe1="backred && t IOS && ssh -t cspmhpweb03xa.int.dyn.semcs.net 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack" 
+alias sshmheprodfe2="backred && t IOS && ssh -t cspmhpweb03yb.int.dyn.semcs.net 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack" 
+alias sshmheprodsolrtnl1="figlet tunnel 29102 to mhe prod solr;ssh  neilsadm@cspmhpweb03yb.int.dyn.semcs.net -L 29102:127.0.0.1:20102 cat"
 #MHE TEST
-alias sshmhetestfe1="backamber && t MHE && ssh -t cstmhpweb01a.test.semantico.net 'cd /opt/semantico/slot/ae-frontend/1/sitecode/ && exec $SHELL -l' ; backblack" 
-alias sshmhetestfe2="backamber && t MHE && ssh -t cstmhpweb01b.test.semantico.net 'cd /opt/semantico/slot/ae-frontend/1/sitecode/ && exec $SHELL -l' ; backblack" 
+
+alias sshmhetestfe1="backamber && t MHE && ssh -t cstmhpweb01a.test.semantico.net 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack" 
+alias sshmhetestfe2="backamber && t MHE && ssh -t cstmhpweb01b.test.semantico.net 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack" 
 alias sshpgmhetest="ssh -f neilsadm@db.ae.mhp.test.semantico.net -L 5433:db.ae.mhp.test.semantico.net:5432 -N"
 
 #STAR TEST
@@ -191,9 +232,17 @@ alias sshstartestrec2="backamber && t Star && ssh -t iststar01b.test.semantico.n
 alias sshstartestdb="backamber && t Star && ssh -t iststardb01b.test.semantico.net 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack"
 
 #STAR PROD
-alias sshstarprodrec1="backred && t Star && ssh -t ispstar03xa 'cd /opt/semantico/slot/star_receiver/1/sitecode/ && exec $SHELL -l' ; backblack" 
-alias sshstarprodrec2="backred && t Star && ssh -t ispstar03yb 'cd /opt/semantico/slot/star_receiver/1/sitecode/ && exec $SHELL -l' ; backblack" 
-alias sshstarproddb="backred && t Star && ssh -t ispstardb03xa.semantico.net 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack"
+alias sshstarprodrec1="backred && t Star && ssh -t ispstar03xa.int.dyn.semcs.net 'cd /opt/semantico/slot/star_receiver/1/sitecode/ && exec $SHELL -l' ; backblack" 
+alias sshstarprodrec2="backred && t Star && ssh -t ispstar03yb.int.dyn.semcs.net 'cd /opt/semantico/slot/star_receiver/1/sitecode/ && exec $SHELL -l' ; backblack" 
+alias sshstarprodrec3="backred && t Star && ssh -t ispstarrec03xa.int.dyn.semcs.net 'cd /opt/semantico/slot/star_receiver/1/sitecode/ && exec $SHELL -l' ; backblack" 
+alias sshstarprodrec4="backred && t Star && ssh -t ispstarrec03yb.int.dyn.semcs.net 'cd /opt/semantico/slot/star_receiver/1/sitecode/ && exec $SHELL -l' ; backblack" 
+
+alias sshstarproddb="backred && t Star && ssh -t ispstardb03xa.int.dyn.semcs.net 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack"
+alias sshstarproddbcopydb="backamber && t Star && ssh -t nstevens@bk-star-postgres-float-dev-01.highwire.org 'cd  && exec $SHELL -l' ; backblack"
+alias sshstarproddbcopytnl="figlet tunnel 5431 to Star Copy Production DB;ssh  nstevens@bk-star-postgres-float-dev-01.highwire.org -L 5431:bk-star-postgres-float-dev-01.highwire.org:5432 cat"
+alias sshstarprodapicopytnl="figlet tunnel 28199 to Star Copy Production API;ssh iststar03x1.highwire.org -L 28199:127.0.0.1:28100 cat"
+
+alias sshstarproddbcopyapi="backamber && t Star && ssh -t iststar03x1.highwire.org 'cd  && exec $SHELL -l' ; backblack"
 
 #ITHIKA STAR DATAQA
 alias sshstarithdataqarec1="backred && t Star && ssh -t cspithqastar08x1.ext.dyn.semcs.net 'cd /opt/semantico/slot/star_receiver/1/sitecode/ && exec $SHELL -l' ; backblack" 
@@ -202,7 +251,7 @@ alias sshstarithdataqaapi1="backred && t Star && ssh -t cspithqastar08y2.ext.dyn
 alias sshstarithdataqaapi2="backred && t Star && ssh -t cspithqastar08x3.ext.dyn.semcs.net 'cd /opt/semantico/slot/star_receiver/1/sitecode/ && exec $SHELL -l' ; backblack" 
 
 
-alias sshlbtest="backamber && t Star && ssh -t istlb01b.test.semantico.net 'cd /var/log/ && exec $SHELL -l' ; backblack" 
+alias sshlbtest="backamber && t Star && ssh -t istlb01b-dmz.test.semantico.net 'cd /var/log/ && exec $SHELL -l' ; backblack" 
 alias sshlbprod="backred && t Star && ssh -t isplb03yb.semantico.net 'cd /var/log/star-receiver/ && exec $SHELL -l' ; backblack" 
 
 #CABI PROD
@@ -216,7 +265,32 @@ alias sshrmmtestfe="backamber && t rmm && ssh -t cstbwweb01i.test.semantico.net 
 alias sshrmmqaadmin="backamber && t rmm && ssh -t cspbwqarmmadmin61x1 'cd /opt/semantico/slot/rmm9-dataqa-admin/1/sitecode/ && exec $SHELL -l' ; backblack"
 alias sshrmmprodadmin="backred && t rmm && ssh -t cspbwrmmadmin60x1 'cd /opt/semantico/slot/rmm9-admin/1/sitecode/ && exec $SHELL -l' ; backblack"
 
+#RMM10
+alias sshrmm10testadmin="backamber && t rmm && ssh -t cstbwrmm10admin03x1.highwire.org 'cd && exec $SHELL -l' ; backblack"
+alias sshrmm10testfe1="backamber && t rmm && ssh -t cstbwrmm10web03x1.highwire.org 'cd && exec $SHELL -l' ; backblack"
+alias sshrmm10uatadmin="backamber && t rmm && ssh -t cstbwuatrmm10admin03x1.highwire.org 'cd && exec $SHELL -l' ; backblack"
+alias sshrmm10uatfe1="backamber && t rmm && ssh -t cstbwuatrmm10web03x1.highwire.org 'cd && exec $SHELL -l' ; backblack"
+alias sshrmm10prodadmin="backred && t rmm && ssh -t cspbwrmm10admin60x1.int.dyn.semcs.net 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack"
+alias sshrmm10prodfe1="backred && t rmm && ssh -t cspbwrmm10web60x1.int.dyn.semcs.net 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack"
+alias sshrmm10prodfe2="backred && t rmm && ssh -t cspbwrmm10web60y1.int.dyn.semcs.net 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack"
+
 #rooks
 alias sshrootestfe="backamber && t rooks && ssh -t cstbwweb01j.test.semantico.net 'cd && exec $SHELL -l' ; backblack" 
 
 
+#FiveStar
+alias sshfstesttnl1="ssh -f bk-fivestar-app-dev-01.highwire.org -L 9000:127.0.0.1:9000 -N &"
+alias sshfstesthost1="ssh bk-fivestar-app-dev-01.highwire.org"
+alias sshfstesthost2="ssh bk-fivestar-app-dev-02.highwire.org"
+alias sshfstesthost3="ssh bk-fivestar-app-dev-03.highwire.org"
+
+alias sshfsprodtnl2="ssh -f bk-fivestar-app-prod-01.highwire.org -L 9000:127.0.0.1:9001 -N &"
+alias sshfsprodhost1="ssh bk-fivestar-app-prod-01.highwire.org"
+
+#COCHRANE
+alias sshcochdev01="ssh nstevens@bk-cochrane-support-dev-01"
+
+#BBYP13nREG
+alias sshbbyregtest="ssh nstevens@bk-bpp-sso-dev-01.highwire.org"
+
+alias syslog="backred && ssh nstevens@bk-syslog-prod-01.highwire.org; backblack"
