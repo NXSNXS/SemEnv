@@ -287,10 +287,20 @@ alias sshfstesthost3="ssh bk-fivestar-app-dev-03.highwire.org"
 alias sshfsprodtnl2="ssh -f bk-fivestar-app-prod-01.highwire.org -L 9000:127.0.0.1:9001 -N &"
 alias sshfsprodhost1="ssh bk-fivestar-app-prod-01.highwire.org"
 
-#COCHRANE
-alias sshcochdev01="ssh nstevens@bk-cochrane-support-dev-01"
+#COCHRANE DEV
+alias sshcochdev01="ssh nstevens@bk-cochrane-support-dev-01.highwire.org"
+alias sshcochdevdebugtnl="figlet debug tunnel 8000 to Cochrane Dev 01;ssh nstevens@bk-cochrane-support-dev-01.highwire.org -L 8000:127.0.0.1:8000 cat"
+
+#COCHRANE PROD
+alias sshcochprodprodx1="backred && t coch && ssh -t cspbwgreclprt160x1 'cd && exec $SHELL -l' ; backblack"
+alias sshcochprodprody1="backred && t coch && ssh -t cspbwgreclprt160y1 'cd && exec $SHELL -l' ; backblack"
+alias sshcochprodprodz1="backred && t coch && ssh -t cspbwgreclprt160z1 'cd && exec $SHELL -l' ; backblack"
+
 
 #BBYP13nREG
 alias sshbbyregtest="ssh nstevens@bk-bpp-sso-dev-01.highwire.org"
+
+#fr-springapp-dev-01.highwire.org
+alias sshspringappdev="backamber && ssh -t nstevens@fr-springapp-dev-01.highwire.org 'cd && exec $SHELL -l' ; backblack"
 
 alias syslog="backred && ssh nstevens@bk-syslog-prod-01.highwire.org; backblack"
