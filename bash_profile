@@ -1,4 +1,5 @@
-
+alias edprof="(cd ~/SemEnv; vi bash_profile); . ~/.bash_profile; echo IF IT WORKS RUN pushprof"
+alias pushprof="(cd ~/SemEnv; git add .; git commit --allow-empty-message; git push)"
 
 export DOCKERHOST=$(ifconfig | grep -E "([0-9]{1,3}\.){3}[0-9]{1,3}" | grep -v 127.0.0.1 | awk '{ print $2 }' | cut -f2 -d: | head -n1)
 
@@ -289,7 +290,11 @@ alias sshfsprodhost1="ssh bk-fivestar-app-prod-01.highwire.org"
 
 #COCHRANE DEV
 alias sshcochdev01="ssh nstevens@bk-cochrane-support-dev-01.highwire.org"
-alias sshcochdevdebugtnl="figlet debug tunnel 8000 to Cochrane Dev 01;ssh nstevens@bk-cochrane-support-dev-01.highwire.org -L 8000:127.0.0.1:8000 cat"
+alias sshcochdev01debugfetnl="figlet debug tunnel 8000 to Cochrane Dev 01;ssh nstevens@bk-cochrane-support-dev-01.highwire.org -L 8000:127.0.0.1:8000 cat"
+alias sshcochdev01debugldtnl="figlet debug tunnel 8001 to Cochrane Dev 01;ssh nstevens@bk-cochrane-support-dev-01.highwire.org -L 8001:127.0.0.1:8001 cat"
+alias sshcochdev01postgrestnl="figlet debug tunnel 5433 to Cochrane Dev 01;ssh nstevens@bk-cochrane-support-dev-01.highwire.org -L 5433:127.0.0.1:5432 cat"
+alias sshcochdev02="ssh nstevens@bk-cochrane-support-dev-02.highwire.org"
+alias sshcochdev03="ssh nstevens@bk-cochrane-support-dev-03.highwire.org"
 
 #COCHRANE PROD
 alias sshcochprodprodx1="backred && t coch && ssh -t cspbwgreclprt160x1 'cd && exec $SHELL -l' ; backblack"
@@ -301,6 +306,10 @@ alias sshcochprodprodz1="backred && t coch && ssh -t cspbwgreclprt160z1 'cd && e
 alias sshbbyregtest="ssh nstevens@bk-bpp-sso-dev-01.highwire.org"
 
 #fr-springapp-dev-01.highwire.org
-alias sshspringappdev="backamber && ssh -t nstevens@fr-springapp-dev-01.highwire.org 'cd && exec $SHELL -l' ; backblack"
+alias sshhwspringappdev="backamber && ssh -t nstevens@fr-springapp-dev-01.highwire.org 'cd && exec $SHELL -l' ; backblack"
 
 alias syslog="backred && ssh nstevens@bk-syslog-prod-01.highwire.org; backblack"
+
+alias sshhwp13nsvcdev="backamber && ssh nstevens@fr-alerts-dev-01.highwire.org; backblack"
+alias sshhwp13nmysqldev="backamber && ssh nstevens@fr-alerts-mysql-dev-01.highwire.org; backblack"
+
