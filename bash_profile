@@ -297,9 +297,9 @@ alias sshcochdev02="ssh nstevens@bk-cochrane-support-dev-02.highwire.org"
 alias sshcochdev03="ssh nstevens@bk-cochrane-support-dev-03.highwire.org"
 
 #COCHRANE PROD
-alias sshcochprodprodx1="backred && t coch && ssh -t cspbwgreclprt160x1 'cd && exec $SHELL -l' ; backblack"
-alias sshcochprodprody1="backred && t coch && ssh -t cspbwgreclprt160y1 'cd && exec $SHELL -l' ; backblack"
-alias sshcochprodprodz1="backred && t coch && ssh -t cspbwgreclprt160z1 'cd && exec $SHELL -l' ; backblack"
+alias sshcochprodprodx1="backred && t coch && ssh -t cspbwgreclprt160x1.semanticoscolaris.com 'cd && exec $SHELL -l' ; backblack"
+alias sshcochprodprody1="backred && t coch && ssh -t cspbwgreclprt160y1.semanticoscolaris.com 'cd && exec $SHELL -l' ; backblack"
+alias sshcochprodprodz1="backred && t coch && ssh -t cspbwgreclprt160z1.semanticoscolaris.com 'cd && exec $SHELL -l' ; backblack"
 
 
 #BBYP13nREG
