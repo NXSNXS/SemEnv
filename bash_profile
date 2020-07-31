@@ -123,6 +123,8 @@ alias backblack="echo -e '\033]Ph000000\033\\'"
 alias backred="echo -e '\033]Ph990000\033\\'" 
 alias backamber="echo -e '\033]Ph997700\033\\'"
 
+alias sshisph="backamber && t isphome && ssh -t isphome01a.semantico.net 'exec $SHELL -l' ; backblack" 
+
 #Boraqe
 alias sshborage="backamber && t SPE && ssh -t ispfs01c.semantico.net 'exec $SHELL -l' ; backblack" 
 
@@ -241,9 +243,9 @@ alias sshstarprodrec4="backred && t Star && ssh -t ispstarrec03yb.int.dyn.semcs.
 alias sshstarproddb="backred && t Star && ssh -t ispstardb03xa.int.dyn.semcs.net 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack"
 alias sshstarproddbcopydb="backamber && t Star && ssh -t nstevens@bk-star-postgres-float-dev-01.highwire.org 'cd  && exec $SHELL -l' ; backblack"
 alias sshstarproddbcopytnl="figlet tunnel 5431 to Star Copy Production DB;ssh  nstevens@bk-star-postgres-float-dev-01.highwire.org -L 5431:bk-star-postgres-float-dev-01.highwire.org:5432 cat"
-alias sshstarprodapicopytnl="figlet tunnel 28199 to Star Copy Production API;ssh iststar03x1.highwire.org -L 28199:127.0.0.1:28100 cat"
+alias sshstarprodapicopytnl="figlet tunnel 28199 to Star Copy Production API;ssh iststar03x1.int.dyn.semcs.net -L 28199:127.0.0.1:28100 cat"
 
-alias sshstarproddbcopyapi="backamber && t Star && ssh -t iststar03x1.highwire.org 'cd  && exec $SHELL -l' ; backblack"
+alias sshstarproddbcopyapi="backamber && t Star && ssh -t iststar03x1.int.dyn.semcs.net 'cd  && exec $SHELL -l' ; backblack"
 
 #ITHIKA STAR DATAQA
 alias sshstarithdataqarec1="backred && t Star && ssh -t cspithqastar08x1.ext.dyn.semcs.net 'cd /opt/semantico/slot/star_receiver/1/sitecode/ && exec $SHELL -l' ; backblack" 
@@ -297,9 +299,10 @@ alias sshcochdev02="ssh nstevens@bk-cochrane-support-dev-02.highwire.org"
 alias sshcochdev03="ssh nstevens@bk-cochrane-support-dev-03.highwire.org"
 
 #COCHRANE PROD
-alias sshcochprodprodx1="backred && t coch && ssh -t cspbwgreclprt160x1.semanticoscolaris.com 'cd && exec $SHELL -l' ; backblack"
-alias sshcochprodprody1="backred && t coch && ssh -t cspbwgreclprt160y1.semanticoscolaris.com 'cd && exec $SHELL -l' ; backblack"
-alias sshcochprodprodz1="backred && t coch && ssh -t cspbwgreclprt160z1.semanticoscolaris.com 'cd && exec $SHELL -l' ; backblack"
+alias sshcochprodlifex1="backred && t coch && ssh -t cspbwgreclprt160x1.int.dyn.semcs.net 'cd && exec $SHELL -l' ; backblack"
+alias sshcochprodlifey1="backred && t coch && ssh -t cspbwgreclprt160y1.int.dyn.semcs.net 'cd && exec $SHELL -l' ; backblack"
+alias sshcochprodlifez1="backred && t coch && ssh -t cspbwgreclprt160z1.int.dyn.semcs.net 'cd && exec $SHELL -l' ; backblack"
+alias sshcochprodsolry1z1="backred && t coch && ssh -t neilsadm@cspbwgreclsolr160x1.ext.dyn.semcs.net 'cd && exec $SHELL -l' ; backblack"
 
 
 #BBYP13nREG
