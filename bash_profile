@@ -159,9 +159,9 @@ alias sshpsodataqasolrtnl2="figlet tunnel 29104 to pso dataqa solr;ssh  neilsadm
 
 
 #PSO/BRC Prod
-alias sshpsoprodadmin="backred && t PSO  && ssh -t fr-brill-pso-admin-prod-01.highwire.org 'cd /opt/semantico/slot/brc-admin/1/ && exec $SHELL -l'; backblack"
-alias sshpsoprodfe1="backred && t PSO  && ssh -t fr-brill-pso-web-prod-01.highwire.org 'cd /opt/semantico/slot/brc-frontend/1/sitecode && exec $SHELL -l'; backblack"
-alias sshpsoprodfe2="backred && t PSO  && ssh -t fr-brill-pso-web-prod-02.highwire.org 'cd /opt/semantico/slot/brc-frontend/1/sitecode && exec $SHELL -l'; backblack"
+alias sshpsoprodadmin="backred && t PSO  && ssh -t fr-brill-pso-admin-prod-01.int.dyn.semcs.net' cd /opt/semantico/slot/brc-admin/1/ && exec $SHELL -l'; backblack"
+alias sshpsoprodfe1="backred && t PSO  && ssh -t fr-brill-pso-web-prod-01.int.dyn.semcs.net 'cd /opt/semantico/slot/brc-frontend/1/sitecode && exec $SHELL -l'; backblack"
+alias sshpsoprodfe2="backred && t PSO  && ssh -t fr-brill-pso-web-prod-02.int.dyn.semcs.net 'cd /opt/semantico/slot/brc-frontend/1/sitecode && exec $SHELL -l'; backblack"
 
 
 #SPE TEST
