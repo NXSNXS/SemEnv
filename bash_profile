@@ -279,7 +279,9 @@ alias sshrmm10prodfe1="backred && t rmm && ssh -t cspbwrmm10web60x1.int.dyn.semc
 alias sshrmm10prodfe2="backred && t rmm && ssh -t cspbwrmm10web60y1.int.dyn.semcs.net 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack"
 
 #rooks
-alias sshrootestfe="backamber && t rooks && ssh -t cstbwweb01j.test.semantico.net 'cd && exec $SHELL -l' ; backblack" 
+alias sshrookstestfe="backamber && t rooks && ssh -t cstbwweb01j.test.semantico.net 'cd && exec $SHELL -l' ; backblack" 
+alias sshrooksprodfe1="backred && t rooks && ssh -t cspbwrooksweb60x1.int.dyn.semcs.net 'cd && exec $SHELL -l' ; backblack" 
+alias sshrooksprodfe2="backred && t rooks && ssh -t cspbwrooksweb60y1.int.dyn.semcs.net 'cd && exec $SHELL -l' ; backblack" 
 
 
 #FiveStar
