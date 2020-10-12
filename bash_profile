@@ -209,7 +209,7 @@ alias sshiostestsams="backamber && t IOS && ssh -t cstiossams01a.test.semantico.
 
 #IOS PROD
 alias sshiosprodadmin="backred && t IOS && ssh -t cspiosadmin30xa.semantico.net 'cd /opt/semantico/slot/ip-admin/1/data/import && exec $SHELL -l' ; backblack" 
-alias sshiosprodfe="backred && ssh -t cspiosweb30yb.ext.dyn.semcs.net 'cd /opt/semantico/slot/ip-frontend/1/sitecode && exec /bin/bash -l'; backblack"
+alias sshiosprodfe="backred && ssh -t cspiosweb30yb.int.dyn.semcs.net 'cd /opt/semantico/slot/ip-frontend/1/sitecode && exec /bin/bash -l'; backblack"
 alias sshiosprodsams1="backred && ssh -t cspiossams30xa.semantico.net 'cd /opt/semantico/slot/ && exec /bin/bash -l'; backblack"
 alias sshiosprodsams2="backred && ssh -t cspiossams30yb.semantico.net 'cd /opt/semantico/slot/ && exec /bin/bash -l'; backblack"
 
