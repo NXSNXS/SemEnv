@@ -212,6 +212,7 @@ alias sshiosprodadmin="backred && t IOS && ssh -t cspiosadmin30xa.semantico.net 
 alias sshiosprodfe="backred && ssh -t cspiosweb30yb.int.dyn.semcs.net 'cd /opt/semantico/slot/ip-frontend/1/sitecode && exec /bin/bash -l'; backblack"
 alias sshiosprodsams1="backred && ssh -t cspiossams30xa.semantico.net 'cd /opt/semantico/slot/ && exec /bin/bash -l'; backblack"
 alias sshiosprodsams2="backred && ssh -t cspiossams30yb.semantico.net 'cd /opt/semantico/slot/ && exec /bin/bash -l'; backblack"
+alias sshiosprodsolrtnl1="figlet tunnel 29100 to ios prod solr;ssh neilsadm@cspiosweb30yb.int.dyn.semcs.net -L 29100:127.0.0.1:20100 cat"
 
 #MAT PROPS DEV
 alias sshmatpropsdev="backamber && t MHE && ssh -t devmhpweb01a.dev.semantico.net 'cd /opt/semantico/slot/mp-mpdbe/1/sitecode && exec $SHELL -l' ; backblack" 
