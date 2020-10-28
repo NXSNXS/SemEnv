@@ -311,11 +311,14 @@ alias sshcochprodsolry1z1="backred && t coch && ssh -t neilsadm@cspbwgreclsolr16
 #BBYP13nREG
 alias sshbbyregtest="ssh nstevens@bk-bpp-sso-dev-01.highwire.org"
 
-#fr-springapp-dev-01.highwire.org
-alias sshhwspringappdev="backamber && ssh -t nstevens@fr-springapp-dev-01.highwire.org 'cd && exec $SHELL -l' ; backblack"
-
+#SYSLOG
 alias sshsyslog="backred && ssh nstevens@bk-syslog-prod-01.highwire.org; backblack"
 
+############## HW Services #############
+alias sshhwprodswarm="backred && ssh nstevens@fr-docker-swarm-prod-01.highwire.org; backblack" 
+
+# OLD Suspect
+alias sshhwspringappdev="backamber && ssh -t nstevens@fr-springapp-dev-01.highwire.org 'cd && exec $SHELL -l' ; backblack"
 alias sshhwp13nsvcdev="backamber && ssh nstevens@fr-alerts-dev-01.highwire.org; backblack"
 alias sshhwp13nmysqldev="backamber && ssh nstevens@fr-alerts-mysql-dev-01.highwire.org; backblack"
 
