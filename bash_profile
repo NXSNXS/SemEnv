@@ -316,7 +316,8 @@ alias sshbbyregtest="ssh nstevens@bk-bpp-sso-dev-01.highwire.org"
 alias sshsyslog="backred && ssh nstevens@bk-syslog-prod-01.highwire.org; backblack"
 
 ############## HW Services #############
-alias sshhwprodswarm="backred && ssh nstevens@fr-docker-swarm-prod-01.highwire.org; backblack" 
+alias sshhwdevswarm="backred && ssh nstevens@fa-docker-swarm-dev-01.highwire.org; backblack" 
+alias sshhwprodswarm="backred && ssh nstevens@fa-docker-swarm-prod-01.highwire.org; backblack" 
 
 # OLD Suspect
 alias sshhwspringappdev="backamber && ssh -t nstevens@fr-springapp-dev-01.highwire.org 'cd && exec $SHELL -l' ; backblack"
