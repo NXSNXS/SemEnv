@@ -143,7 +143,8 @@ alias sshriboprodsolrtnl2="figlet tunnel 29101 to ribo prod solr;ssh  neilsadm@c
 alias sshriboprodfragrtnl="figlet tunnel 26100 to ribo prod fragr;ssh  neilsadm@cspbrillribo03x1.semantico.net -L 26100:127.0.0.1:26100 cat"
 
 #Ribo dataQA
-alias sshribodatqafe1="backred && t RIBO && ssh -t cspbrillqaribo03x1.semantico.net 'cd /opt/semantico/slot/ribo-dataqa-frontend/1/sitecode && exec $SHELL -l' ; backblack" 
+alias sshribodataqafe1="backred && t RIBO && ssh -t cspbrillqaribo03x1.semantico.net 'cd /opt/semantico/slot/ribo-dataqa-frontend/1/sitecode && exec $SHELL -l' ; backblack" 
+alias sshribodataqaadmin="backred && t RIBO && ssh -t cspbrillqapso03x1.semantico.net 'cd /opt/semantico/slot/brc-dataqa-admin/1/sitecode && exec $SHELL -l' ; backblack" 
 alias sshribodataqasolrtnl1="figlet tunnel 29100 to ribo dataqa solr;ssh  neilsadm@cspbrillqaribo03x1.semantico.net -L 29100:127.0.0.1:20100 cat"
 alias sshribodataqasolrtnl2="figlet tunnel 29101 to ribo dataqa solr;ssh  neilsadm@cspbrillqaribo03x1.semantico.net -L 29101:127.0.0.1:20101 cat"
 
