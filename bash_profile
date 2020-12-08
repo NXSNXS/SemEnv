@@ -163,6 +163,7 @@ alias sshpsoprodadmin="backred && t PSO  && ssh -t fr-brill-pso-admin-prod-01.in
 alias sshpsoprodfe1="backred && t PSO  && ssh -t fr-brill-pso-web-prod-01.int.dyn.semcs.net 'cd /opt/semantico/slot/brc-frontend/1/sitecode && exec $SHELL -l'; backblack"
 alias sshpsoprodfe2="backred && t PSO  && ssh -t fr-brill-pso-web-prod-02.int.dyn.semcs.net 'cd /opt/semantico/slot/brc-frontend/1/sitecode && exec $SHELL -l'; backblack"
 alias sshpsoprodsolrtnl1="figlet tunnel 29102 to PSO prod solr;ssh  fr-brill-pso-web-prod-01.int.dyn.semcs.net  -L 29102:127.0.0.1:20102 cat"
+alias sshpsoprodrodney1="figlet tunnel 39102 to PSO prod solr;ssh  fr-brill-pso-web-prod-01.int.dyn.semcs.net  -L 39102:127.0.0.1:30102 cat"
 
 
 #SPE TEST
@@ -172,16 +173,16 @@ alias sshspetestsams="backamber && t SPE && ssh -t cstspesams01a.test.semantico.
 alias sshspetestdb="backamber && t SPE && ssh -t cstspeweb01b.test.semantico.net 'cd /tmp && exec $SHELL -l' ; backblack"
 
 #SPE PROD
-alias sshspeproddb1="backred && t SPE && ssh -t fr-spe-db-prod-01.highwire.org 'cd && exec $SHELL -l' ; backblack"
-alias sshspeproddb2="backred && t SPE && ssh -t fr-spe-db-prod-02.highwire.org 'cd && exec $SHELL -l' ; backblack"
-alias sshspeproddoi="backred && t SPE && ssh -t fr-spe-mxdoi-prod-01 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack"
-alias sshspeprodadminandreports="backred && t SPE && ssh -t fr-spe-op-admin-prod-01.highwire.org 'cd /opt/semantico/slot/op-admin/1/sitecode/ && exec $SHELL -l' ; backblack"
-alias sshspeprodfe1="backred && t SPE && ssh -t fr-spe-op-web-prod-01.highwire.org 'cd /opt/semantico/slot/op-frontend/1/sitecode && exec $SHELL -l' ; backblack"
-alias sshspeprodfe2="backred && t SPE && ssh -t fr-spe-op-web-prod-02.highwire.org 'cd /opt/semantico/slot/op-frontend/1/sitecode/ && exec $SHELL -l' ; backblack"
-alias sshspeprodsams1="backred && t SPE && ssh -t fr-spe-sams-web-prod-01.highwire.org 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack"
-alias sshspeprodsams2="backred && t SPE && ssh -t fr-spe-sams-web-prod-02.highwire.org 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack"
-alias sshspeprodsolrtnl1="figlet tunnel 29100 to spe prod solr;ssh fr-spe-op-web-prod-01.highwire.org -L 29100:127.0.0.1:20100 cat"
-alias sshspeprodsolrtnl2="figlet tunnel 29101 to spe prod solr;ssh fr-spe-op-web-prod-01.highwire.org -L 29101:127.0.0.1:20101 cat"
+alias sshspeproddb1="backred && t SPE && ssh -t neilsadm@fr-spe-db-prod-01.highwire.org 'cd && exec $SHELL -l' ; backblack"
+alias sshspeproddb2="backred && t SPE && ssh -t neilsadm@fr-spe-db-prod-02.highwire.org 'cd && exec $SHELL -l' ; backblack"
+alias sshspeproddoi="backred && t SPE && ssh -t neilsadm@fr-spe-mxdoi-prod-01 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack"
+alias sshspeprodadminandreports="backred && t SPE && ssh -t neilsadm@fr-spe-op-admin-prod-01.highwire.org 'cd /opt/semantico/slot/op-admin/1/sitecode/ && exec $SHELL -l' ; backblack"
+alias sshspeprodfe1="backred && t SPE && ssh -t neilsadm@fr-spe-op-web-prod-01.highwire.org 'cd /opt/semantico/slot/op-frontend/1/sitecode && exec $SHELL -l' ; backblack"
+alias sshspeprodfe2="backred && t SPE && ssh -t neilsadm@fr-spe-op-web-prod-02.highwire.org 'cd /opt/semantico/slot/op-frontend/1/sitecode/ && exec $SHELL -l' ; backblack"
+alias sshspeprodsams1="backred && t SPE && ssh -t neilsadm@fr-spe-sams-web-prod-01.highwire.org 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack"
+alias sshspeprodsams2="backred && t SPE && ssh -t neilsadm@fr-spe-sams-web-prod-02.highwire.org 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack"
+alias sshspeprodsolrtnl1="figlet tunnel 29100 to spe prod solr;ssh neilsadm@fr-spe-op-web-prod-01.highwire.org -L 29100:127.0.0.1:20100 cat"
+alias sshspeprodsolrtnl2="figlet tunnel 29101 to spe prod solr;ssh neilsadm@fr-spe-op-web-prod-01.highwire.org -L 29101:127.0.0.1:20101 cat"
 
 #PDF AGG
 alias sshpdfaggprod1="backred && t SPE && ssh -t nstevens@fr-spe-pdfaggregator-prod-01.highwire.org 'cd / && exec $SHELL -l' ; backblack"
@@ -318,6 +319,10 @@ alias sshsyslog="backred && ssh nstevens@bk-syslog-prod-01.highwire.org; backbla
 ############## HW Services #############
 alias sshhwdevswarm="backred && ssh nstevens@fa-docker-swarm-dev-01.highwire.org; backblack" 
 alias sshhwprodswarm="backred && ssh nstevens@fa-docker-swarm-prod-01.highwire.org; backblack" 
+
+######### Personal Dev Box in Faction #############
+alias sshdevfact="ssh nstevens@fa-nstevens-dev-01.highwire.org" 
+
 
 # OLD Suspect
 alias sshhwspringappdev="backamber && ssh -t nstevens@fr-springapp-dev-01.highwire.org 'cd && exec $SHELL -l' ; backblack"
