@@ -319,14 +319,14 @@ alias sshsyslog="backred && ssh nstevens@bk-syslog-prod-01.highwire.org; backbla
 
 ############## HW Services #############
 alias sshhwdevswarm="backred && ssh nstevens@fa-docker-swarm-dev-01.highwire.org; backblack" 
+alias sshhwqaswarm="backamber && ssh nstevens@fa-docker-swarm-qa-01.highwire.org; backblack" 
 alias sshhwprodswarm="backred && ssh nstevens@fa-docker-swarm-prod-01.highwire.org; backblack" 
+
+alias sshhwp13nmysqldev="backamber && ssh nstevens@fr-alerts-mysql-dev-01.highwire.org; backblack"
+alias sshhwp13nmysqlqa="backamber && ssh nstevens@fr-alerts-mysql-qa-01.highwire.org; backblack"
+alias sshhwp13nmysqlprod="backred && ssh nstevens@fr-alerts-mysql-prod-01.highwire.org; backblack"
+
 
 ######### Personal Dev Box in Faction #############
 alias sshdevfact="ssh nstevens@fa-nstevens-dev-01.highwire.org" 
-
-
-# OLD Suspect
-alias sshhwspringappdev="backamber && ssh -t nstevens@fr-springapp-dev-01.highwire.org 'cd && exec $SHELL -l' ; backblack"
-alias sshhwp13nsvcdev="backamber && ssh nstevens@fr-alerts-dev-01.highwire.org; backblack"
-alias sshhwp13nmysqldev="backamber && ssh nstevens@fr-alerts-mysql-dev-01.highwire.org; backblack"
 
