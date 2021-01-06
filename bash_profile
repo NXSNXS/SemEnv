@@ -164,6 +164,7 @@ alias sshpsoprodadmin="backred && t PSO  && ssh -t fr-brill-pso-admin-prod-01.in
 alias sshpsoprodfe1="backred && t PSO  && ssh -t fr-brill-pso-web-prod-01.int.dyn.semcs.net 'cd /opt/semantico/slot/brc-frontend/1/sitecode && exec $SHELL -l'; backblack"
 alias sshpsoprodfe2="backred && t PSO  && ssh -t fr-brill-pso-web-prod-02.int.dyn.semcs.net 'cd /opt/semantico/slot/brc-frontend/1/sitecode && exec $SHELL -l'; backblack"
 alias sshpsoprodsolrtnl1="figlet tunnel 29102 to PSO prod solr;ssh  fr-brill-pso-web-prod-01.int.dyn.semcs.net  -L 29102:127.0.0.1:20102 cat"
+alias sshpsoprodsolrtnl2="figlet tunnel 29103 to PSO prod solr;ssh  fr-brill-pso-web-prod-01.int.dyn.semcs.net  -L 29103:127.0.0.1:20103 cat"
 alias sshpsoprodrodney1="figlet tunnel 39102 to PSO prod solr;ssh  fr-brill-pso-web-prod-01.int.dyn.semcs.net  -L 39102:127.0.0.1:30102 cat"
 
 
@@ -315,7 +316,7 @@ alias sshcochprodsolry1z1="backred && t coch && ssh -t neilsadm@cspbwgreclsolr16
 alias sshbbyregtest="ssh nstevens@bk-bpp-sso-dev-01.highwire.org"
 
 #SYSLOG
-alias sshsyslog="backred && ssh nstevens@bk-syslog-prod-01.highwire.org; backblack"
+alias sshsyslog="backred && ssh nstevens@fa-syslog-prod-01.highwire.org; backblack"
 
 ############## HW Services #############
 alias sshhwdevswarm="backred && ssh nstevens@fa-docker-swarm-dev-01.highwire.org; backblack" 
