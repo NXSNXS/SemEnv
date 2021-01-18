@@ -1,0 +1,43 @@
+#Host *03x* *03y* !ispmx03* seaweed* !ispmon03* !ispaxs03yb !csppmsams03xa !isplsv03xc !ispbgp03yb !ispvpn03* !cstbwrmm10*
+#  ProxyCommand ssh -q -a -x ispmon03xa.semantico.net -W %h:22
+
+#Host cspbwgreclprt160*
+  #ProxyCommand ssh -q -a -x isphome01a.semantico.net -W %h:22
+
+#Host *03x1* *03x2*
+  #ProxyCommand ssh -q -a -x ispmon03xa.semantico.net -W %h:22
+
+#Host cspbwqarmmadmin61x1
+  #ProxyCommand ssh -q -a -x isphome01a.semantico.net -W %h:22
+
+#Host cspbrillweb03yb.brill.semcs.net
+  #ProxyCommand ssh -q -a -x isphome01a.semantico.net -W %h:22
+
+Host ispstar*.int.dyn.semcs.net cspbrill*.semantico.net cspbrill*.int.dyn.semcs.net fr-spe-*.highwire.org cspmhp*.int.dyn.semcs.net
+   User neilsadm
+   ProxyCommand ssh -q -a -x fa-docker-swarm-dev-01.highwire.org -W %h:22
+   UseKeychain yes
+
+Host pubapi-prod-*.highwire.org
+   User nstevens
+   ProxyCommand ssh -q -a -x fa-docker-swarm-dev-01.highwire.org -W %h:22
+   UseKeychain yes
+
+Host *.highwire.org
+    User nstevens
+    ServerAliveInterval 600
+
+Host *.int.dyn.semcs.net
+   User neilsadm
+   ProxyCommand ssh -q -a -x isphome01a.semantico.net -W %h:22
+
+Host *.semantico.net
+   User neilsadm
+   #ProxyCommand ssh -q -a -x isphome01a.semantico.net -W %h:22
+   #ProxyCommand ssh ProxyCommand  nc -X connect -x isphome01a.semantico.net:22 %h %p
+
+Match Host *
+    ForwardAgent yes
+    ServerAliveInterval 600
+    TCPKeepAlive yes
+    UseKeychain yes
