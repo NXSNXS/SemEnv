@@ -319,7 +319,7 @@ alias sshbbyregtest="ssh nstevens@bk-bpp-sso-dev-01.highwire.org"
 alias sshsyslog="backred && ssh nstevens@fa-syslog-prod-01.highwire.org; backblack"
 
 ############## HW Services #############
-alias sshhwdevswarm="backred && ssh nstevens@fa-docker-swarm-dev-01.highwire.org; backblack" 
+alias sshhwdevswarm="backamber && ssh nstevens@fa-docker-swarm-dev-01.highwire.org; backblack" 
 alias sshhwqaswarm="backamber && ssh nstevens@fa-docker-swarm-qa-01.highwire.org; backblack" 
 alias sshhwprodswarm="backred && ssh nstevens@fa-docker-swarm-prod-01.highwire.org; backblack" 
 
