@@ -1,4 +1,5 @@
 alias edprof="(cd ~/SemEnv; vi bash_profile); . ~/.bash_profile; echo IF IT WORKS RUN pushprof"
+alias edssh="(cd ~/SemEnv; vi sshconfig); echo IF IT WORKS RUN pushprof"
 alias pushprof="(cd ~/SemEnv; git add .; git commit --allow-empty-message; git push)"
 
 export DOCKERHOST=$(ifconfig | grep -E "([0-9]{1,3}\.){3}[0-9]{1,3}" | grep -v 127.0.0.1 | awk '{ print $2 }' | cut -f2 -d: | head -n1)
@@ -211,11 +212,11 @@ alias sshiostestdb="backamber && t IOS && ssh -t cstiosweb01a.test.semantico.net
 alias sshiostestsams="backamber && t IOS && ssh -t cstiossams01a.test.semantico.net 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack" 
 
 #IOS PROD
-alias sshiosprodadmin="backred && t IOS && ssh -t cspiosadmin30xa.semantico.net 'cd /opt/semantico/slot/ip-admin/1/data/import && exec $SHELL -l' ; backblack" 
-alias sshiosprodfe="backred && ssh -t cspiosweb30yb.int.dyn.semcs.net 'cd /opt/semantico/slot/ip-frontend/1/sitecode && exec /bin/bash -l'; backblack"
-alias sshiosprodsams1="backred && ssh -t cspiossams30xa.semantico.net 'cd /opt/semantico/slot/ && exec /bin/bash -l'; backblack"
-alias sshiosprodsams2="backred && ssh -t cspiossams30yb.semantico.net 'cd /opt/semantico/slot/ && exec /bin/bash -l'; backblack"
-alias sshiosprodsolrtnl1="figlet tunnel 29100 to ios prod solr;ssh neilsadm@cspiosweb30yb.int.dyn.semcs.net -L 29100:127.0.0.1:20100 cat"
+alias sshiosprodadmin="backred && t IOS && ssh -t cspiosadmin30xa.ext.dyn.semcs.net 'cd /opt/semantico/slot/ip-admin/1/data/import && exec $SHELL -l' ; backblack" 
+alias sshiosprodfe="backred && ssh -t cspiosweb30yb.ext.dyn.semcs.net  'cd /opt/semantico/slot/ip-frontend/1/sitecode && exec /bin/bash -l'; backblack"
+alias sshiosprodsams1="backred && ssh -t cspiossams30xa.ext.dyn.semcs.net  'cd /opt/semantico/slot/ && exec /bin/bash -l'; backblack"
+alias sshiosprodsams2="backred && ssh -t cspiossams30yb.ext.dyn.semcs.net  'cd /opt/semantico/slot/ && exec /bin/bash -l'; backblack"
+alias sshiosprodsolrtnl1="figlet tunnel 29100 to ios prod solr;ssh neilsadm@cspiosweb30yb.ext.dyn.semcs.net -L 29100:127.0.0.1:20100 cat"
 
 #MAT PROPS DEV
 alias sshmatpropsdev="backamber && t MHE && ssh -t devmhpweb01a.dev.semantico.net 'cd /opt/semantico/slot/mp-mpdbe/1/sitecode && exec $SHELL -l' ; backblack" 
@@ -237,7 +238,7 @@ alias sshpgmhetest="ssh -f neilsadm@db.ae.mhp.test.semantico.net -L 5433:db.ae.m
 #STAR TEST
 alias sshstartestrec1="backamber && t Star && ssh -t iststar01a.test.semantico.net 'cd /opt/semantico/slot/star_receiver/1/sitecode/ && exec $SHELL -l' ; backblack" 
 alias sshstartestrec2="backamber && t Star && ssh -t iststar01b.test.semantico.net 'cd /opt/semantico/slot/star_receiver/1/sitecode/ && exec $SHELL -l' ; backblack" 
-alias sshstartestdb="backamber && t Star && ssh -t iststardb01b.test.semantico.net 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack"
+alias sshstartestdb="backamber && t Star && ssh -t iststardb01b.test.semantico.net 'cd ~  && exec $SHELL -l' ; backblack"
 
 #STAR PROD
 alias sshstarprodrec1="backred && t Star && ssh -t ispstar03xa.int.dyn.semcs.net 'cd /opt/semantico/slot/star_receiver/1/sitecode/ && exec $SHELL -l' ; backblack" 
@@ -245,7 +246,8 @@ alias sshstarprodrec2="backred && t Star && ssh -t ispstar03yb.int.dyn.semcs.net
 alias sshstarprodrec3="backred && t Star && ssh -t ispstarrec03xa.int.dyn.semcs.net 'cd /opt/semantico/slot/star_receiver/1/sitecode/ && exec $SHELL -l' ; backblack" 
 alias sshstarprodrec4="backred && t Star && ssh -t ispstarrec03yb.int.dyn.semcs.net 'cd /opt/semantico/slot/star_receiver/1/sitecode/ && exec $SHELL -l' ; backblack" 
 
-alias sshstarproddb="backred && t Star && ssh -t ispstardb03xa.int.dyn.semcs.net 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack"
+#alias sshstarproddb="backred && t Star && ssh -t ispstardb03xa.int.dyn.semcs.net 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack"
+alias sshstarproddb="backred && t Star && ssh -t fa-star-postgres-prod-01.highwire.org 'cd ~ && exec $SHELL -l' ; backblack"
 alias sshstarproddbcopydb="backamber && t Star && ssh -t nstevens@bk-star-postgres-float-dev-01.highwire.org 'cd  && exec $SHELL -l' ; backblack"
 alias sshstarproddbcopytnl="figlet tunnel 5431 to Star Copy Production DB;ssh  nstevens@bk-star-postgres-float-dev-01.highwire.org -L 5431:bk-star-postgres-float-dev-01.highwire.org:5432 cat"
 alias sshstarprodapicopytnl="figlet tunnel 28199 to Star Copy Production API;ssh iststar03x1.int.dyn.semcs.net -L 28199:127.0.0.1:28100 cat"

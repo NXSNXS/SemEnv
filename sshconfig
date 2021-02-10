@@ -12,9 +12,10 @@ Host *.highwire.org
     User nstevens
     ServerAliveInterval 600
 
-Host *.int.dyn.semcs.net
+Host *.int.dyn.semcs.net *.ext.dyn.semcs.net
    User neilsadm
-   ProxyCommand ssh -q -a -x isphome01a.semantico.net -W %h:22
+   ProxyCommand ssh -q -a -x fa-nstevens-dev-01.highwire.org -W %h:22
+   #ProxyCommand ssh -q -a -x isphome01a.semantico.net -W %h:22
 
 Host *.semantico.net
    User neilsadm
