@@ -1,6 +1,7 @@
 alias edprof="(cd ~/SemEnv; vi bash_profile); . ~/.bash_profile; echo IF IT WORKS RUN pushprof"
 alias edssh="(cd ~/SemEnv; vi sshconfig); echo IF IT WORKS RUN pushprof"
 alias pushprof="(cd ~/SemEnv; git add .; git commit --allow-empty-message; git push)"
+alias pullprof="(cd ~/SemEnv; git pull); . ~/.bash_profile"
 
 export DOCKERHOST=$(ifconfig | grep -E "([0-9]{1,3}\.){3}[0-9]{1,3}" | grep -v 127.0.0.1 | awk '{ print $2 }' | cut -f2 -d: | head -n1)
 
@@ -212,10 +213,10 @@ alias sshiostestdb="backamber && t IOS && ssh -t cstiosweb01a.test.semantico.net
 alias sshiostestsams="backamber && t IOS && ssh -t cstiossams01a.test.semantico.net 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack" 
 
 #IOS PROD
-alias sshiosprodadmin="backred && t IOS && ssh -t cspiosadmin30xa.ext.dyn.semcs.net 'cd /opt/semantico/slot/ip-admin/1/data/import && exec $SHELL -l' ; backblack" 
-alias sshiosprodfe="backred && ssh -t cspiosweb30yb.ext.dyn.semcs.net  'cd /opt/semantico/slot/ip-frontend/1/sitecode && exec /bin/bash -l'; backblack"
-alias sshiosprodsams1="backred && ssh -t cspiossams30xa.ext.dyn.semcs.net  'cd /opt/semantico/slot/ && exec /bin/bash -l'; backblack"
-alias sshiosprodsams2="backred && ssh -t cspiossams30yb.ext.dyn.semcs.net  'cd /opt/semantico/slot/ && exec /bin/bash -l'; backblack"
+alias sshiosprodadmin="backred && t IOS && ssh -t neilsadm@cspiosadmin30xa.ext.dyn.semcs.net 'cd /opt/semantico/slot/ip-admin/1/data/import && exec $SHELL -l' ; backblack" 
+alias sshiosprodfe="backred && ssh -t neilsadm@cspiosweb30yb.ext.dyn.semcs.net  'cd /opt/semantico/slot/ip-frontend/1/sitecode && exec /bin/bash -l'; backblack"
+alias sshiosprodsams1="backred && ssh -t neilsadm@cspiossams30xa.ext.dyn.semcs.net  'cd /opt/semantico/slot/ && exec /bin/bash -l'; backblack"
+alias sshiosprodsams2="backred && ssh -t neilsadm@cspiossams30yb.ext.dyn.semcs.net  'cd /opt/semantico/slot/ && exec /bin/bash -l'; backblack"
 alias sshiosprodsolrtnl1="figlet tunnel 29100 to ios prod solr;ssh neilsadm@cspiosweb30yb.ext.dyn.semcs.net -L 29100:127.0.0.1:20100 cat"
 
 #MAT PROPS DEV
@@ -323,7 +324,9 @@ alias sshsyslog="backred && ssh nstevens@fa-syslog-prod-01.highwire.org; backbla
 ############## HW Services #############
 alias sshhwdevswarm="backamber && ssh nstevens@fa-docker-swarm-dev-01.highwire.org; backblack" 
 alias sshhwqaswarm="backamber && ssh nstevens@fa-docker-swarm-qa-01.highwire.org; backblack" 
-alias sshhwprodswarm="backred && ssh nstevens@fa-docker-swarm-prod-01.highwire.org; backblack" 
+alias sshhwprodswarm1="backred && ssh nstevens@fa-docker-swarm-prod-01.highwire.org; backblack" 
+alias sshhwprodswarm2="backred && ssh nstevens@fa-docker-swarm-prod-02.highwire.org; backblack" 
+alias sshhwprodswarm3="backred && ssh nstevens@fa-docker-swarm-prod-03.highwire.org; backblack" 
 
 alias sshhwp13nmysqldev="backamber && ssh nstevens@fr-alerts-mysql-dev-01.highwire.org; backblack"
 alias sshhwp13nmysqlqa="backamber && ssh nstevens@fr-alerts-mysql-qa-01.highwire.org; backblack"
