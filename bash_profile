@@ -336,3 +336,58 @@ alias sshhwp13nmysqlprod="backred && ssh nstevens@fr-alerts-mysql-prod-01.highwi
 ######### Personal Dev Box in Faction #############
 alias sshdevfact="ssh nstevens@fa-nstevens-dev-01.highwire.org" 
 
+listSwarmNodesProd() {
+    ssh nstevens@fa-docker-swarm-prod-01.highwire.org 'docker service ps -fdesired-state=Running  --format {{.Node}} '$1'_'$1
+}
+
+listSwarmNodesDev() {
+    ssh nstevens@fa-docker-swarm-dev-01.highwire.org 'docker service ps -fdesired-state=Running  --format {{.Node}} '$1'_'$1
+}
+
+listSwarmNodesQA() {
+    ssh nstevens@fa-docker-swarm-qa-01.highwire.org 'docker service ps -fdesired-state=Running  --format {{.Node}} '$1'_'$1
+}
+
+getContainerId(){
+    ssh $1 'docker ps --filter expose=8080  --format {{.ID}} --filter name='$2
+}
+
+bashService(){
+    echo Opening bash shell on $1:$2 1>&2 
+    ssh -t  $1 "docker exec -it $2 /bin/bash"
+}
+
+sshFirstSwarmDevFor(){
+    node=$(listSwarmNodesDev $1 | head -n1)
+    ssh $node
+}
+
+sshFirstSwarmQAFor(){
+    node=$(listSwarmNodesQA $1 | head -n1)
+    ssh $node
+}
+
+sshFirstSwarmProdFor(){
+    node=$(listSwarmNodesProd $1 | head -n1)
+    ssh $node
+}
+
+bashFirstServiceDev(){
+    node=$(listSwarmNodesDev $1 | head -n1)
+    containerid=$(getContainerId $node $1) 
+    bashService $node $containerid
+}
+
+bashFirstServiceQA(){
+    node=$(listSwarmNodesQA $1 | head -n1)
+    containerid=$(getContainerId $node) 
+    bashService $node $containerid
+}
+
+bashFirstServiceProd(){
+    node=$(listSwarmNodesProd $1 | head -n1)
+    containerid=$(getContainerId $node) 
+    bashService $node $containerid
+}
+
+
