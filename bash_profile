@@ -121,6 +121,7 @@ alias renv=". ~/.bash_profile"
 #export HOMEBREW_CASK_OPTS=--caskroom=/opt/homebrew-cask/Caskroom
 
 alias backblack="echo -e '\033]Ph000000\033\\'" 
+alias backgrey="echo -e '\033]Ph404040\033\\'" 
 alias backred="echo -e '\033]Ph990000\033\\'" 
 alias backamber="echo -e '\033]Ph997700\033\\'"
 
@@ -372,21 +373,27 @@ sshFirstSwarmProdFor(){
 }
 
 bashFirstServiceDev(){
+    backgrey
     node=$(listSwarmNodesDev $1 | head -n1)
     containerid=$(getContainerId $node $1) 
     bashService $node $containerid
+    backblack
 }
 
 bashFirstServiceQA(){
+    backamber
     node=$(listSwarmNodesQA $1 | head -n1)
     containerid=$(getContainerId $node $1) 
     bashService $node $containerid
+    backblack
 }
 
 bashFirstServiceProd(){
+    backred
     node=$(listSwarmNodesProd $1 | head -n1)
     containerid=$(getContainerId $node $1) 
     bashService $node $containerid
+    backblack
 }
 
 
