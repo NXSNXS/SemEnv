@@ -1,5 +1,4 @@
-alias edprof="(cd ~/SemEnv; vi bash_profile); . ~/.bash_profile; echo IF IT WORKS RUN pushprof"
-alias edssh="(cd ~/SemEnv; vi sshconfig); echo IF IT WORKS RUN pushprof"
+alias edprof="(cd ~/SemEnv; vi bash_profile sshconfig); . ~/.bash_profile; echo IF IT WORKS RUN pushprof"
 alias pushprof="(cd ~/SemEnv; git add .; git commit --allow-empty-message; git push)"
 alias pullprof="(cd ~/SemEnv; git pull); . ~/.bash_profile"
 
