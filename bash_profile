@@ -380,13 +380,13 @@ bashFirstServiceDev(){
 
 bashFirstServiceQA(){
     node=$(listSwarmNodesQA $1 | head -n1)
-    containerid=$(getContainerId $node) 
+    containerid=$(getContainerId $node $1) 
     bashService $node $containerid
 }
 
 bashFirstServiceProd(){
     node=$(listSwarmNodesProd $1 | head -n1)
-    containerid=$(getContainerId $node) 
+    containerid=$(getContainerId $node $1) 
     bashService $node $containerid
 }
 
