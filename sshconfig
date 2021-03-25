@@ -1,4 +1,4 @@
-Host ispstar*.int.dyn.semcs.net cspbrill*.semantico.net cspbrill*.int.dyn.semcs.net fr-spe-*.highwire.org cspmhp*.int.dyn.semcs.net
+Host ispstar*.int.dyn.semcs.net cspbrill*.semantico.net cspbrill*.int.dyn.semcs.net fr-spe-*.highwire.org cspmhp*.int.dyn.semcs.net cspouppi03xa.ext.dyn.semcs.net
    User neilsadm
    ProxyCommand ssh -q -a -x fa-nstevens-dev-01.highwire.org -W %h:22
    UseKeychain yes

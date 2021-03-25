@@ -1,6 +1,9 @@
 alias edprof="(cd ~/SemEnv; vi bash_profile sshconfig); . ~/.bash_profile; echo IF IT WORKS RUN pushprof"
 alias pushprof="(cd ~/SemEnv; git add .; git commit --allow-empty-message; git push)"
 alias pullprof="(cd ~/SemEnv; git pull); . ~/.bash_profile"
+alias applyprof=". ~/.bash_profile"
+alias statprof="(cd ~/SemEnv; git status)"
+alias diffprof="(cd ~/SemEnv; git diff bash_profile sshconfig)"
 
 export DOCKERHOST=$(ifconfig | grep -E "([0-9]{1,3}\.){3}[0-9]{1,3}" | grep -v 127.0.0.1 | awk '{ print $2 }' | cut -f2 -d: | head -n1)
 
