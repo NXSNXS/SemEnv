@@ -373,7 +373,7 @@ sshFirstSwarmProdFor(){
     ssh $node
 }
 
-bashFirstServiceDev(){
+sshFirstServiceDev(){
     backgrey
     node=$(listSwarmNodesDev $1 | head -n1)
     containerid=$(getContainerId $node $1) 
@@ -381,7 +381,7 @@ bashFirstServiceDev(){
     backblack
 }
 
-bashFirstServiceQA(){
+sshFirstServiceQA(){
     backamber
     node=$(listSwarmNodesQA $1 | head -n1)
     containerid=$(getContainerId $node $1) 
@@ -389,7 +389,7 @@ bashFirstServiceQA(){
     backblack
 }
 
-bashFirstServiceProd(){
+sshFirstServiceProd(){
     backred
     node=$(listSwarmNodesProd $1 | head -n1)
     containerid=$(getContainerId $node $1) 
