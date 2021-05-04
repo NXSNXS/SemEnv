@@ -145,7 +145,8 @@ alias sshriboprodfe1="backred && t RIBO && ssh -t cspbrillribo03x1.semantico.net
 alias sshriboprodfe2="backred && t RIBO && ssh -t cspbrillribo03y1.semantico.net 'cd /opt/semantico/slot/ribo-frontend/1/sitecode/ && exec $SHELL -l' ; backblack" 
 alias sshriboprodsolrtnl1="figlet tunnel 29100 to ribo prod solr;ssh  neilsadm@cspbrillribo03x1.semantico.net -L 29100:127.0.0.1:20100 cat"
 alias sshriboprodsolrtnl2="figlet tunnel 29101 to ribo prod solr;ssh  neilsadm@cspbrillribo03x1.semantico.net -L 29101:127.0.0.1:20101 cat"
-alias sshriboprodfragrtnl="figlet tunnel 26100 to ribo prod fragr;ssh  neilsadm@cspbrillribo03x1.semantico.net -L 26100:127.0.0.1:26100 cat"
+alias sshriboprodfragrtnl="figlet tunnel 29100 to ribo prod fragr;ssh  neilsadm@cspbrillribo03x1.semantico.net -L 29100:127.0.0.1:26100 cat"
+alias sshriboprodrodneytnl="figlet tunnel 39100 to ribo prod rodney;ssh  neilsadm@cspbrillribo03x1.semantico.net -L 39100:127.0.0.1:30100 cat"
 
 #Ribo dataQA
 alias sshribodataqafe1="backred && t RIBO && ssh -t cspbrillqaribo03x1.semantico.net 'cd /opt/semantico/slot/ribo-dataqa-frontend/1/sitecode && exec $SHELL -l' ; backblack" 
@@ -378,7 +379,7 @@ sshFirstSwarmProdFor(){
     ssh $node
 }
 
-bashFirstServiceDev(){
+sshFirstServiceDev(){
     backgrey
     node=$(listSwarmNodesDev $1 | head -n1)
     containerid=$(getContainerId $node $1) 
@@ -386,7 +387,7 @@ bashFirstServiceDev(){
     backblack
 }
 
-bashFirstServiceQA(){
+sshFirstServiceQA(){
     backamber
     node=$(listSwarmNodesQA $1 | head -n1)
     containerid=$(getContainerId $node $1) 
@@ -394,7 +395,7 @@ bashFirstServiceQA(){
     backblack
 }
 
-bashFirstServiceProd(){
+sshFirstServiceProd(){
     backred
     node=$(listSwarmNodesProd $1 | head -n1)
     containerid=$(getContainerId $node $1) 
