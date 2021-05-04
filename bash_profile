@@ -233,8 +233,11 @@ alias sshmatpropsprod2="backred && t IOS && ssh -t cspmhpweb03yb.semantico.net '
 alias sshmheprodfe1="backred && t IOS && ssh -t cspmhpweb03xa.int.dyn.semcs.net 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack" 
 alias sshmheprodfe2="backred && t IOS && ssh -t cspmhpweb03yb.int.dyn.semcs.net 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack" 
 alias sshmheprodsolrtnl1="figlet tunnel 29102 to mhe prod solr;ssh  neilsadm@cspmhpweb03yb.int.dyn.semcs.net -L 29102:127.0.0.1:20102 cat"
-#MHE TEST
 
+#MHE DataQa
+alias sshmhedataqa="backred && t IOS && ssh -t cspmhpqaweb03x1.int.dyn.semcs.net 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack" 
+
+#MHE TEST
 alias sshmhetestfe1="backamber && t MHE && ssh -t cstmhpweb01a.test.semantico.net 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack" 
 alias sshmhetestfe2="backamber && t MHE && ssh -t cstmhpweb01b.test.semantico.net 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack" 
 alias sshpgmhetest="ssh -f neilsadm@db.ae.mhp.test.semantico.net -L 5433:db.ae.mhp.test.semantico.net:5432 -N"
@@ -284,9 +287,9 @@ alias sshrmm10testadmin="backamber && t rmm && ssh -t cstbwrmm10admin03x1.highwi
 alias sshrmm10testfe1="backamber && t rmm && ssh -t cstbwrmm10web03x1.highwire.org 'cd && exec $SHELL -l' ; backblack"
 alias sshrmm10uatadmin="backamber && t rmm && ssh -t cstbwuatrmm10admin03x1.highwire.org 'cd && exec $SHELL -l' ; backblack"
 alias sshrmm10uatfe1="backamber && t rmm && ssh -t cstbwuatrmm10web03x1.highwire.org 'cd && exec $SHELL -l' ; backblack"
-alias sshrmm10prodadmin="backred && t rmm && ssh -t cspbwrmm10admin60x1.int.dyn.semcs.net 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack"
-alias sshrmm10prodfe1="backred && t rmm && ssh -t cspbwrmm10web60x1.int.dyn.semcs.net 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack"
-alias sshrmm10prodfe2="backred && t rmm && ssh -t cspbwrmm10web60y1.int.dyn.semcs.net 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack"
+alias sshrmm10prodadmin="backred && t rmm && ssh -t neilsadm@cspbwrmm10admin60x1.ext.dyn.semcs.net 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack"
+alias sshrmm10prodfe1="backred && t rmm && ssh -t neilsadm@cspbwrmm10web60x1.ext.dyn.semcs.net 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack"
+alias sshrmm10prodfe2="backred && t rmm && ssh -t neilsadm@cspbwrmm10web60y1.ext.dyn.semcs.net 'cd /opt/semantico/slot/ && exec $SHELL -l' ; backblack"
 
 #rooks
 alias sshrookstestfe="backamber && t rooks && ssh -t cstbwweb01j.test.semantico.net 'cd && exec $SHELL -l' ; backblack" 
